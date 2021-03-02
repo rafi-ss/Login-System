@@ -1,0 +1,142 @@
+<CustomTextInput@TextInput>:
+    font_size: self.height - 8
+    size_hint: 1.0, .55
+    padding: [ 20, (self.height-self.line_height)/2  ]
+
+
+<RegistrationScreen>:
+    BoxLayout:
+        orientation:"vertical"
+        size:root.width, root.height
+        padding: 50
+
+        canvas.before:
+            Color:
+                rgba: 0,1,0,1
+            Rectangle:
+                size: self.size
+
+        Image:
+            source: "download.png"
+
+        BoxLayout:
+            orientation:"vertical"
+            padding: 20
+            CustomTextInput:
+                id: username
+                hint_text: "Enter Your username..."
+        
+        BoxLayout:
+            orientation:"vertical"
+            padding: 20
+            CustomTextInput:
+                id: password
+                password: True
+                hint_text: "Enter Your password..."
+
+        BoxLayout:
+            orientation:"vertical"
+            padding: 20
+            CustomTextInput:
+                id: confirm_password
+                password: True
+                hint_text: "Confirm password..."
+
+
+
+        Button:
+            text:"Register"
+            size_hint: None, None
+            size: 200, 50
+            pos_hint: {'center_x': 0.5 }
+            background_color: 211/255.0,217/255.0,59/255.0, 1
+            background_normal: ""
+            on_press: root.registerUser()
+
+        BoxLayout:
+            orientation: "horizontal"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Label:
+            text: "Do You have already an account? Login"
+            font_size: 20
+            font: "bold"
+        
+        Button:
+            text: "Login"
+            size: 120, 40
+            size_hint: None, None
+            on_press: root.goToLoginScreen()
+
+
+<LoginScreen>:
+    BoxLayout:
+        orientation:"vertical"
+        size:root.width, root.height
+        padding: 50
+
+        canvas.before:
+            Color:
+                rgba: 0,1,0,1
+            Rectangle:
+                size: self.size
+
+        Image:
+            source: "download.png"
+
+        TextInput:
+            id: username
+            size_hint: 1.0, None
+            font_size: 50
+            height: 100
+            padding: [ 20, (self.height-self.line_height)/2]
+            hint_text: "Enter Your username..."
+
+        TextInput:
+            id: password
+            size_hint: 1.0, None
+            font_size: 50
+            height:100
+            padding: [ 20, (self.height-self.line_height)/2]
+            password: True
+            hint_text: "Enter Your password..."
+
+
+
+        Button:
+            text:"Login"
+            size_hint: None, None
+            size: 200, 50
+            pos_hint: {'center_x': 0.5 }
+            background_color: 211/255.0,217/255.0,59/255.0, 1
+            background_normal: ""
+            on_press: root.checklogin()
+
+        BoxLayout:
+            orientation: "horizontal"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        Label:
+            text: "Do you want a new account?"
+            font_size: 20
+            font: "bold"
+        
+        Button:
+            text: "Register"
+            size: 120, 40
+            size_hint: None, None
+            on_press: root.goToRegisterPage()
+
+            
+<MenuScreen>:
+    BoxLayout:
+        orientation:"vertical"
+        size:root.width, root.height
+
+        Label:
+            id: name
+            text: "MenuScreen"
+            
+
+
+
